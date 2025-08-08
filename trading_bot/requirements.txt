@@ -1,0 +1,26 @@
+# Core dependencies
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.9.2
+ta==0.11.0  # Technical analysis library
+
+# API connectors
+ccxt==4.3.81  # Cryptocurrency exchange library
+alpaca-trade-api==3.1.1  # For stock trading
+
+# Backtesting
+backtrader==1.9.78.123
+# Install pyfolio-reloaded directly from GitHub for latest working version
+git+https://github.com/robertmartin8/pyfolio.git
+
+
+# Utilities
+pyyaml==6.0.2  # For configuration files
+loguru==0.7.2  # Better logging
+requests==2.32.3  # HTTP requests
+
+# Notifications
+telegram-send==0.34  # Telegram notifications
+
+# Testing
+pytest==8.3.3

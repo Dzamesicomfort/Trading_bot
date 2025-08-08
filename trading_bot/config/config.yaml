@@ -1,0 +1,87 @@
+# Trading Bot Configuration
+
+# General Settings
+general:
+  mode: backtest  # Options: backtest, paper, live
+  log_level: INFO  # Options: DEBUG, INFO, WARNING, ERROR
+  timezone: UTC
+
+# Trading Parameters
+trading:
+  symbol: BTC/USDT
+  timeframe: 1h  # Options: 1m, 5m, 15m, 30m, 1h, 4h, 1d
+  base_currency: USDT
+  quote_currency: BTC
+
+# Strategy Parameters
+strategy:
+  name: EMA_Crossover  # Options: EMA_Crossover, RSI, MACD, BollingerBands
+  params:
+    ema_crossover:
+      fast_ema: 9
+      slow_ema: 21
+    rsi:
+      period: 14
+      overbought: 70
+      oversold: 30
+    macd:
+      fast_period: 12
+      slow_period: 26
+      signal_period: 9
+    bollinger_bands:
+      period: 20
+      std_dev: 2
+
+# Risk Management
+risk_management:
+  max_position_size: 0.1  # Percentage of portfolio per position
+  stop_loss: 0.02  # 2% stop loss
+  take_profit: 0.04  # 4% take profit
+  trailing_stop: true
+  trailing_stop_activation: 0.01  # Activate trailing stop after 1% profit
+  trailing_stop_distance: 0.01  # 1% trailing stop distance
+  max_drawdown: 0.2  # Maximum allowed drawdown (20%)
+
+# Exchange Settings
+exchange:
+  name: binance  # Options: binance, alpaca, etc.
+  api_key: YOUR_API_KEY_HERE
+  api_secret: YOUR_API_SECRET_HERE
+  testnet: true  # Use testnet for paper trading
+  rate_limit: true  # Respect exchange rate limits
+
+# Backtesting Settings
+backtest:
+  start_date: 2023-01-01
+  end_date: 2023-12-31
+  initial_balance: 10000
+  fee_rate: 0.001  # 0.1% fee per trade
+  slippage: 0.001  # 0.1% slippage
+
+# Notification Settings
+notifications:
+  enabled: true
+  telegram:
+    enabled: false
+    token: YOUR_TELEGRAM_BOT_TOKEN
+    chat_id: YOUR_TELEGRAM_CHAT_ID
+  email:
+    enabled: false
+    smtp_server: smtp.gmail.com
+    smtp_port: 587
+    sender_email: your_email@gmail.com
+    sender_password: YOUR_APP_PASSWORD
+    recipient_email: your_email@gmail.com
+
+# Logging Settings
+logging:
+  file_enabled: true
+  file_path: logs/trading_bot.log
+  rotation: 1d  # Rotate logs daily
+  retention: 30d  # Keep logs for 30 days
+
+# TradingView Webhook Settings
+tradingview_webhook:
+  enabled: false
+  port: 5000
+  secret_key: YOUR_SECRET_KEY_HERE
